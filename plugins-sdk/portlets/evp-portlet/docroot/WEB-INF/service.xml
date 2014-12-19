@@ -78,6 +78,7 @@ volunteers (Volunteer, 0:N)
 
 		<!-- Other fields -->
 
+		<column name="projectId" type="long" />
 		<column name="amount" type="double" />
 		<column name="volunteerId" type="long" />
 		<column name="receiveDate" type="Date" />

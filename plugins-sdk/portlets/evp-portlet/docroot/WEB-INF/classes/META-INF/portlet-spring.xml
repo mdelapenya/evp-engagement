@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="com.liferay.evp.admin.service.service.FundLocalService" class="com.liferay.evp.admin.service.service.impl.FundLocalServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.FundService" class="com.liferay.evp.admin.service.service.impl.FundServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.persistence.FundPersistence" class="com.liferay.evp.admin.service.service.persistence.impl.FundPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.evp.admin.service.service.ProjectLocalService" class="com.liferay.evp.admin.service.service.impl.ProjectLocalServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.ProjectService" class="com.liferay.evp.admin.service.service.impl.ProjectServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.persistence.ProjectPersistence" class="com.liferay.evp.admin.service.service.persistence.impl.ProjectPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.evp.admin.service.service.VolunteerLocalService" class="com.liferay.evp.admin.service.service.impl.VolunteerLocalServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.VolunteerService" class="com.liferay.evp.admin.service.service.impl.VolunteerServiceImpl" />
+	<bean id="com.liferay.evp.admin.service.service.persistence.VolunteerPersistence" class="com.liferay.evp.admin.service.service.persistence.impl.VolunteerPersistenceImpl" parent="basePersistence" />
+</beans>

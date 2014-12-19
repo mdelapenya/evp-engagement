@@ -17,7 +17,7 @@ package com.liferay.evp.admin.service.impl;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.evp.admin.model.Project;
-import com.liferay.evp.admin.model.impl.LiferayAuditPOJO;
+import com.liferay.evp.admin.pojos.LiferayAuditPOJO;
 import com.liferay.evp.admin.service.base.ProjectLocalServiceBaseImpl;
 
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.liferay.evp.admin.model.impl;
+package com.liferay.evp.admin.pojos;
 
 import java.util.Date;
 

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.evp.admin.model.Fund">
+		<field name="fundId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="projectId" type="long" />
+		<field name="amount" type="double" />
+		<field name="volunteerId" type="long" />
+		<field name="receiveDate" type="Date" />
+	</model>
+	<model name="com.liferay.evp.admin.model.Project">
+		<field name="projectId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+		<field name="location" type="String" />
+		<field name="coordX" type="long" />
+		<field name="coordY" type="long" />
+		<field name="coverImageId" type="long" />
+		<field name="requiredFunds" type="double" />
+		<field name="actualFunds" type="double" />
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+		<field name="approvalDate" type="Date" />
+		<field name="managerName" type="String" />
+	</model>
+	<model name="com.liferay.evp.admin.model.Volunteer">
+		<field name="volunteerId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="address" type="String" />
+		<field name="coordX" type="long" />
+		<field name="coordY" type="long" />
+	</model>
+</model-hints>

@@ -50,6 +50,9 @@ volunteers (Volunteer, 0:N)
 
 		<!-- Finder methods -->
 
+		<finder name="Company" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
 		<finder name="ManagerName" return-type="Collection">
 			<finder-column name="managerName" />
 		</finder>

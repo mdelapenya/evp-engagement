@@ -16,9 +16,13 @@ package com.liferay.evp.admin.service.impl;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.liferay.evp.admin.ManagerNameException;
+import com.liferay.evp.admin.ProjectNameException;
 import com.liferay.evp.admin.model.Project;
 import com.liferay.evp.admin.pojos.LiferayAuditPOJO;
 import com.liferay.evp.admin.service.base.ProjectLocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Date;
 import java.util.List;
@@ -46,10 +50,11 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 	 */
 
 	public Project addProject(
-		long groupId, LiferayAuditPOJO liferayAudit, String name,
-		String description, String location, long coordX, long coordY,
-		long coverImageId, double requiredFunds, double actualFunds,
-		Date startDate, Date endDate, Date approvalDate, String managerName) {
+			long groupId, LiferayAuditPOJO liferayAudit, String name,
+			String description, String location, long coordX, long coordY,
+			long coverImageId, double requiredFunds, double actualFunds,
+			Date startDate, Date endDate, Date approvalDate, String managerName)
+		throws PortalException {
 
 		long id = counterLocalService.increment();
 
@@ -74,11 +79,12 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 	}
 
 	public Project updateProject(
-		long projectId, long groupId, LiferayAuditPOJO liferayAudit,
-		String name, String description, String location, long coordX,
-		long coordY, long coverImageId, double requiredFunds,
-		double actualFunds, Date startDate, Date endDate, Date approvalDate,
-		String managerName) {
+			long projectId, long groupId, LiferayAuditPOJO liferayAudit,
+			String name, String description, String location, long coordX,
+			long coordY, long coverImageId, double requiredFunds,
+			double actualFunds, Date startDate, Date endDate, Date approvalDate,
+			String managerName)
+		throws PortalException {
 
 		Project project = projectPersistence.findByPrimaryKey(projectId);
 
@@ -91,11 +97,12 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 	}
 
 	private void _setProjectValues(
-		Project project, long groupId, LiferayAuditPOJO liferayAudit,
-		String name, String description, String location, long coordX,
-		long coordY, long coverImageId, double requiredFunds,
-		double actualFunds, Date startDate, Date endDate, Date approvalDate,
-		String managerName) {
+			Project project, long groupId, LiferayAuditPOJO liferayAudit,
+			String name, String description, String location, long coordX,
+			long coordY, long coverImageId, double requiredFunds,
+			double actualFunds, Date startDate, Date endDate, Date approvalDate,
+			String managerName)
+		throws PortalException {
 
 		project.setGroupId(groupId);
 
@@ -123,6 +130,18 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 		project.setEndDate(endDate);
 		project.setApprovalDate(approvalDate);
 		project.setManagerName(managerName);
+
+		_validate(project);
+	}
+
+	private void _validate(Project project) throws PortalException {
+		if (Validator.isNull(project.getName())) {
+			throw new ProjectNameException("Project name cannot be empty");
+		}
+
+		if (Validator.isNull(project.getManagerName())) {
+			throw new ManagerNameException("Manager name cannot be empty");
+		}
 	}
 
 }

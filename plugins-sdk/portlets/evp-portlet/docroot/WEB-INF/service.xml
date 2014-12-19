@@ -93,4 +93,78 @@ volunteers (Volunteer, 0:N)
 			<finder-column name="field2" />
 		</finder>
 	</entity>
+	<entity name="Fund" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="fundId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="amount" type="double" />
+		<column name="volunteerId" type="long" />
+		<column name="receiveDate" type="Date" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+	<entity name="Volunteer" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="volunteerId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="firstName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="address" type="String" />
+		<column name="coordX" type="long" />
+		<column name="coordY" type="long" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="lastName" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
 </service-builder>

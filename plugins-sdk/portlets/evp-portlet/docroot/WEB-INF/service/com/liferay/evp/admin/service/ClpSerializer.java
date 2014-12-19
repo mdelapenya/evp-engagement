@@ -379,6 +379,22 @@ public class ClpSerializer {
 				throwable.getCause());
 		}
 
+		if (className.equals("com.liferay.evp.admin.VolunteerAddressException")) {
+			return new com.liferay.evp.admin.VolunteerAddressException(throwable.getMessage(),
+				throwable.getCause());
+		}
+
+		if (className.equals(
+					"com.liferay.evp.admin.VolunteerFirstNameException")) {
+			return new com.liferay.evp.admin.VolunteerFirstNameException(throwable.getMessage(),
+				throwable.getCause());
+		}
+
+		if (className.equals("com.liferay.evp.admin.VolunteerLastNameException")) {
+			return new com.liferay.evp.admin.VolunteerLastNameException(throwable.getMessage(),
+				throwable.getCause());
+		}
+
 		if (className.equals("com.liferay.evp.admin.NoSuchFundException")) {
 			return new com.liferay.evp.admin.NoSuchFundException(throwable.getMessage(),
 				throwable.getCause());

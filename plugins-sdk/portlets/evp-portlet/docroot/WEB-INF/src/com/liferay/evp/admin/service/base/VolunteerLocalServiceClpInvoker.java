@@ -126,6 +126,29 @@ public class VolunteerLocalServiceClpInvoker {
 		_methodName56 = "setBeanIdentifier";
 
 		_methodParameterTypes56 = new String[] { "java.lang.String" };
+
+		_methodName61 = "addVolunteer";
+
+		_methodParameterTypes61 = new String[] {
+				"long", "com.liferay.evp.admin.pojos.LiferayAuditPOJO",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"long", "long"
+			};
+
+		_methodName62 = "getVolunteers";
+
+		_methodParameterTypes62 = new String[] { "long", "int", "int" };
+
+		_methodName63 = "getVolunteersCount";
+
+		_methodParameterTypes63 = new String[] { "long" };
+
+		_methodName64 = "updateVolunteer";
+
+		_methodParameterTypes64 = new String[] {
+				"long", "long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "long", "long"
+			};
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -239,6 +262,38 @@ public class VolunteerLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName61.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes61, parameterTypes)) {
+			return VolunteerLocalServiceUtil.addVolunteer(((Long)arguments[0]).longValue(),
+				(com.liferay.evp.admin.pojos.LiferayAuditPOJO)arguments[1],
+				(java.lang.String)arguments[2], (java.lang.String)arguments[3],
+				(java.lang.String)arguments[4],
+				((Long)arguments[5]).longValue(),
+				((Long)arguments[6]).longValue());
+		}
+
+		if (_methodName62.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
+			return VolunteerLocalServiceUtil.getVolunteers(((Long)arguments[0]).longValue(),
+				((Integer)arguments[1]).intValue(),
+				((Integer)arguments[2]).intValue());
+		}
+
+		if (_methodName63.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
+			return VolunteerLocalServiceUtil.getVolunteersCount(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName64.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
+			return VolunteerLocalServiceUtil.updateVolunteer(((Long)arguments[0]).longValue(),
+				((Long)arguments[1]).longValue(),
+				(java.lang.String)arguments[2], (java.lang.String)arguments[3],
+				(java.lang.String)arguments[4],
+				((Long)arguments[5]).longValue(),
+				((Long)arguments[6]).longValue());
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -282,4 +337,12 @@ public class VolunteerLocalServiceClpInvoker {
 	private String[] _methodParameterTypes55;
 	private String _methodName56;
 	private String[] _methodParameterTypes56;
+	private String _methodName61;
+	private String[] _methodParameterTypes61;
+	private String _methodName62;
+	private String[] _methodParameterTypes62;
+	private String _methodName63;
+	private String[] _methodParameterTypes63;
+	private String _methodName64;
+	private String[] _methodParameterTypes64;
 }

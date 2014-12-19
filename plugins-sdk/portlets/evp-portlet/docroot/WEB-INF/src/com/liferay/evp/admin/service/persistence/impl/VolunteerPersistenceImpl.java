@@ -85,70 +85,72 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
 			VolunteerModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID = new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_COMPANYID =
+		new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
 			VolunteerModelImpl.FINDER_CACHE_ENABLED, VolunteerImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByGroupId",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByCompanyId",
 			new String[] {
 				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID =
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID =
 		new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
 			VolunteerModelImpl.FINDER_CACHE_ENABLED, VolunteerImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByGroupId",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByCompanyId",
 			new String[] { Long.class.getName() },
-			VolunteerModelImpl.GROUPID_COLUMN_BITMASK |
+			VolunteerModelImpl.COMPANYID_COLUMN_BITMASK |
 			VolunteerModelImpl.LASTNAME_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_GROUPID = new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_COUNT_BY_COMPANYID = new FinderPath(VolunteerModelImpl.ENTITY_CACHE_ENABLED,
 			VolunteerModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByGroupId",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByCompanyId",
 			new String[] { Long.class.getName() });
 
 	/**
-	 * Returns all the volunteers where groupId = &#63;.
+	 * Returns all the volunteers where companyId = &#63;.
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @return the matching volunteers
 	 */
 	@Override
-	public List<Volunteer> findByGroupId(long groupId) {
-		return findByGroupId(groupId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	public List<Volunteer> findByCompanyId(long companyId) {
+		return findByCompanyId(companyId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			null);
 	}
 
 	/**
-	 * Returns a range of all the volunteers where groupId = &#63;.
+	 * Returns a range of all the volunteers where companyId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.admin.model.impl.VolunteerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @param start the lower bound of the range of volunteers
 	 * @param end the upper bound of the range of volunteers (not inclusive)
 	 * @return the range of matching volunteers
 	 */
 	@Override
-	public List<Volunteer> findByGroupId(long groupId, int start, int end) {
-		return findByGroupId(groupId, start, end, null);
+	public List<Volunteer> findByCompanyId(long companyId, int start, int end) {
+		return findByCompanyId(companyId, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the volunteers where groupId = &#63;.
+	 * Returns an ordered range of all the volunteers where companyId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.evp.admin.model.impl.VolunteerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @param start the lower bound of the range of volunteers
 	 * @param end the upper bound of the range of volunteers (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching volunteers
 	 */
 	@Override
-	public List<Volunteer> findByGroupId(long groupId, int start, int end,
+	public List<Volunteer> findByCompanyId(long companyId, int start, int end,
 		OrderByComparator<Volunteer> orderByComparator) {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -157,12 +159,12 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID;
-			finderArgs = new Object[] { groupId };
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID;
+			finderArgs = new Object[] { companyId };
 		}
 		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID;
-			finderArgs = new Object[] { groupId, start, end, orderByComparator };
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_COMPANYID;
+			finderArgs = new Object[] { companyId, start, end, orderByComparator };
 		}
 
 		List<Volunteer> list = (List<Volunteer>)FinderCacheUtil.getResult(finderPath,
@@ -170,7 +172,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 		if ((list != null) && !list.isEmpty()) {
 			for (Volunteer volunteer : list) {
-				if ((groupId != volunteer.getGroupId())) {
+				if ((companyId != volunteer.getCompanyId())) {
 					list = null;
 
 					break;
@@ -191,7 +193,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 			query.append(_SQL_SELECT_VOLUNTEER_WHERE);
 
-			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+			query.append(_FINDER_COLUMN_COMPANYID_COMPANYID_2);
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -213,7 +215,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				qPos.add(groupId);
+				qPos.add(companyId);
 
 				if (!pagination) {
 					list = (List<Volunteer>)QueryUtil.list(q, getDialect(),
@@ -246,18 +248,19 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 	}
 
 	/**
-	 * Returns the first volunteer in the ordered set where groupId = &#63;.
+	 * Returns the first volunteer in the ordered set where companyId = &#63;.
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching volunteer
 	 * @throws com.liferay.evp.admin.NoSuchVolunteerException if a matching volunteer could not be found
 	 */
 	@Override
-	public Volunteer findByGroupId_First(long groupId,
+	public Volunteer findByCompanyId_First(long companyId,
 		OrderByComparator<Volunteer> orderByComparator)
 		throws NoSuchVolunteerException {
-		Volunteer volunteer = fetchByGroupId_First(groupId, orderByComparator);
+		Volunteer volunteer = fetchByCompanyId_First(companyId,
+				orderByComparator);
 
 		if (volunteer != null) {
 			return volunteer;
@@ -267,8 +270,8 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("groupId=");
-		msg.append(groupId);
+		msg.append("companyId=");
+		msg.append(companyId);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -276,71 +279,16 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 	}
 
 	/**
-	 * Returns the first volunteer in the ordered set where groupId = &#63;.
+	 * Returns the first volunteer in the ordered set where companyId = &#63;.
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching volunteer, or <code>null</code> if a matching volunteer could not be found
 	 */
 	@Override
-	public Volunteer fetchByGroupId_First(long groupId,
+	public Volunteer fetchByCompanyId_First(long companyId,
 		OrderByComparator<Volunteer> orderByComparator) {
-		List<Volunteer> list = findByGroupId(groupId, 0, 1, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the last volunteer in the ordered set where groupId = &#63;.
-	 *
-	 * @param groupId the group ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching volunteer
-	 * @throws com.liferay.evp.admin.NoSuchVolunteerException if a matching volunteer could not be found
-	 */
-	@Override
-	public Volunteer findByGroupId_Last(long groupId,
-		OrderByComparator<Volunteer> orderByComparator)
-		throws NoSuchVolunteerException {
-		Volunteer volunteer = fetchByGroupId_Last(groupId, orderByComparator);
-
-		if (volunteer != null) {
-			return volunteer;
-		}
-
-		StringBundler msg = new StringBundler(4);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("groupId=");
-		msg.append(groupId);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchVolunteerException(msg.toString());
-	}
-
-	/**
-	 * Returns the last volunteer in the ordered set where groupId = &#63;.
-	 *
-	 * @param groupId the group ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching volunteer, or <code>null</code> if a matching volunteer could not be found
-	 */
-	@Override
-	public Volunteer fetchByGroupId_Last(long groupId,
-		OrderByComparator<Volunteer> orderByComparator) {
-		int count = countByGroupId(groupId);
-
-		if (count == 0) {
-			return null;
-		}
-
-		List<Volunteer> list = findByGroupId(groupId, count - 1, count,
+		List<Volunteer> list = findByCompanyId(companyId, 0, 1,
 				orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -351,17 +299,73 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 	}
 
 	/**
-	 * Returns the volunteers before and after the current volunteer in the ordered set where groupId = &#63;.
+	 * Returns the last volunteer in the ordered set where companyId = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching volunteer
+	 * @throws com.liferay.evp.admin.NoSuchVolunteerException if a matching volunteer could not be found
+	 */
+	@Override
+	public Volunteer findByCompanyId_Last(long companyId,
+		OrderByComparator<Volunteer> orderByComparator)
+		throws NoSuchVolunteerException {
+		Volunteer volunteer = fetchByCompanyId_Last(companyId, orderByComparator);
+
+		if (volunteer != null) {
+			return volunteer;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("companyId=");
+		msg.append(companyId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchVolunteerException(msg.toString());
+	}
+
+	/**
+	 * Returns the last volunteer in the ordered set where companyId = &#63;.
+	 *
+	 * @param companyId the company ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching volunteer, or <code>null</code> if a matching volunteer could not be found
+	 */
+	@Override
+	public Volunteer fetchByCompanyId_Last(long companyId,
+		OrderByComparator<Volunteer> orderByComparator) {
+		int count = countByCompanyId(companyId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<Volunteer> list = findByCompanyId(companyId, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the volunteers before and after the current volunteer in the ordered set where companyId = &#63;.
 	 *
 	 * @param volunteerId the primary key of the current volunteer
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next volunteer
 	 * @throws com.liferay.evp.admin.NoSuchVolunteerException if a volunteer with the primary key could not be found
 	 */
 	@Override
-	public Volunteer[] findByGroupId_PrevAndNext(long volunteerId,
-		long groupId, OrderByComparator<Volunteer> orderByComparator)
+	public Volunteer[] findByCompanyId_PrevAndNext(long volunteerId,
+		long companyId, OrderByComparator<Volunteer> orderByComparator)
 		throws NoSuchVolunteerException {
 		Volunteer volunteer = findByPrimaryKey(volunteerId);
 
@@ -372,13 +376,13 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 			Volunteer[] array = new VolunteerImpl[3];
 
-			array[0] = getByGroupId_PrevAndNext(session, volunteer, groupId,
-					orderByComparator, true);
+			array[0] = getByCompanyId_PrevAndNext(session, volunteer,
+					companyId, orderByComparator, true);
 
 			array[1] = volunteer;
 
-			array[2] = getByGroupId_PrevAndNext(session, volunteer, groupId,
-					orderByComparator, false);
+			array[2] = getByCompanyId_PrevAndNext(session, volunteer,
+					companyId, orderByComparator, false);
 
 			return array;
 		}
@@ -390,8 +394,8 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 		}
 	}
 
-	protected Volunteer getByGroupId_PrevAndNext(Session session,
-		Volunteer volunteer, long groupId,
+	protected Volunteer getByCompanyId_PrevAndNext(Session session,
+		Volunteer volunteer, long companyId,
 		OrderByComparator<Volunteer> orderByComparator, boolean previous) {
 		StringBundler query = null;
 
@@ -405,7 +409,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 		query.append(_SQL_SELECT_VOLUNTEER_WHERE);
 
-		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+		query.append(_FINDER_COLUMN_COMPANYID_COMPANYID_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -475,7 +479,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
-		qPos.add(groupId);
+		qPos.add(companyId);
 
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(volunteer);
@@ -496,29 +500,29 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 	}
 
 	/**
-	 * Removes all the volunteers where groupId = &#63; from the database.
+	 * Removes all the volunteers where companyId = &#63; from the database.
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 */
 	@Override
-	public void removeByGroupId(long groupId) {
-		for (Volunteer volunteer : findByGroupId(groupId, QueryUtil.ALL_POS,
-				QueryUtil.ALL_POS, null)) {
+	public void removeByCompanyId(long companyId) {
+		for (Volunteer volunteer : findByCompanyId(companyId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(volunteer);
 		}
 	}
 
 	/**
-	 * Returns the number of volunteers where groupId = &#63;.
+	 * Returns the number of volunteers where companyId = &#63;.
 	 *
-	 * @param groupId the group ID
+	 * @param companyId the company ID
 	 * @return the number of matching volunteers
 	 */
 	@Override
-	public int countByGroupId(long groupId) {
-		FinderPath finderPath = FINDER_PATH_COUNT_BY_GROUPID;
+	public int countByCompanyId(long companyId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_COMPANYID;
 
-		Object[] finderArgs = new Object[] { groupId };
+		Object[] finderArgs = new Object[] { companyId };
 
 		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
 				this);
@@ -528,7 +532,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 			query.append(_SQL_COUNT_VOLUNTEER_WHERE);
 
-			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+			query.append(_FINDER_COLUMN_COMPANYID_COMPANYID_2);
 
 			String sql = query.toString();
 
@@ -541,7 +545,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				qPos.add(groupId);
+				qPos.add(companyId);
 
 				count = (Long)q.uniqueResult();
 
@@ -560,7 +564,7 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 		return count.intValue();
 	}
 
-	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "volunteer.groupId = ?";
+	private static final String _FINDER_COLUMN_COMPANYID_COMPANYID_2 = "volunteer.companyId = ?";
 
 	public VolunteerPersistenceImpl() {
 		setModelClass(Volunteer.class);
@@ -782,19 +786,21 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 
 		else {
 			if ((volunteerModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID.getColumnBitmask()) != 0) {
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
-						volunteerModelImpl.getOriginalGroupId()
+						volunteerModelImpl.getOriginalCompanyId()
 					};
 
-				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
-				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_COMPANYID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID,
 					args);
 
-				args = new Object[] { volunteerModelImpl.getGroupId() };
+				args = new Object[] { volunteerModelImpl.getCompanyId() };
 
-				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
-				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_COMPANYID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID,
 					args);
 			}
 		}
@@ -818,7 +824,6 @@ public class VolunteerPersistenceImpl extends BasePersistenceImpl<Volunteer>
 		volunteerImpl.setPrimaryKey(volunteer.getPrimaryKey());
 
 		volunteerImpl.setVolunteerId(volunteer.getVolunteerId());
-		volunteerImpl.setGroupId(volunteer.getGroupId());
 		volunteerImpl.setCompanyId(volunteer.getCompanyId());
 		volunteerImpl.setUserId(volunteer.getUserId());
 		volunteerImpl.setUserName(volunteer.getUserName());

@@ -34,7 +34,7 @@ import com.liferay.evp.admin.service.base.VolunteerServiceBaseImpl;
  */
 @ProviderType
 public class VolunteerServiceImpl extends VolunteerServiceBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link com.liferay.evp.admin.service.VolunteerServiceUtil} to access the volunteer remote service.

@@ -41,6 +41,12 @@ public class ProjectLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link com.liferay.evp.admin.service.impl.ProjectLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+
+	/**
+	* NOTE FOR DEVELOPERS:
+	*
+	* Never reference this class directly. Always use {@link com.liferay.evp.admin.service.ProjectLocalServiceUtil} to access the project local service.
+	*/
 	public static com.liferay.evp.admin.model.Project addProject(long groupId,
 		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
 		java.lang.String name, java.lang.String description,

@@ -27,11 +27,12 @@ import aQute.bnd.annotation.ProviderType;
  */
 @ProviderType
 public class ProjectImpl extends ProjectBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. All methods that expect a project model instance should use the {@link com.liferay.evp.admin.model.Project} interface instead.
 	 */
 	public ProjectImpl() {
 	}
+
 }

@@ -27,11 +27,12 @@ import aQute.bnd.annotation.ProviderType;
  */
 @ProviderType
 public class VolunteerImpl extends VolunteerBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. All methods that expect a volunteer model instance should use the {@link com.liferay.evp.admin.model.Volunteer} interface instead.
 	 */
 	public VolunteerImpl() {
 	}
+
 }

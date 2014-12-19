@@ -41,12 +41,10 @@ public class VolunteerCacheModel implements CacheModel<Volunteer>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{volunteerId=");
 		sb.append(volunteerId);
-		sb.append(", groupId=");
-		sb.append(groupId);
 		sb.append(", companyId=");
 		sb.append(companyId);
 		sb.append(", userId=");
@@ -77,7 +75,6 @@ public class VolunteerCacheModel implements CacheModel<Volunteer>,
 		VolunteerImpl volunteerImpl = new VolunteerImpl();
 
 		volunteerImpl.setVolunteerId(volunteerId);
-		volunteerImpl.setGroupId(groupId);
 		volunteerImpl.setCompanyId(companyId);
 		volunteerImpl.setUserId(userId);
 
@@ -134,7 +131,6 @@ public class VolunteerCacheModel implements CacheModel<Volunteer>,
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		volunteerId = objectInput.readLong();
-		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
 		userName = objectInput.readUTF();
@@ -151,7 +147,6 @@ public class VolunteerCacheModel implements CacheModel<Volunteer>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		objectOutput.writeLong(volunteerId);
-		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
 
@@ -191,7 +186,6 @@ public class VolunteerCacheModel implements CacheModel<Volunteer>,
 	}
 
 	public long volunteerId;
-	public long groupId;
 	public long companyId;
 	public long userId;
 	public String userName;

@@ -48,6 +48,12 @@ public interface ProjectLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link ProjectLocalServiceUtil} to access the project local service. Add custom service methods to {@link com.liferay.evp.admin.service.impl.ProjectLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+
+	/**
+	* NOTE FOR DEVELOPERS:
+	*
+	* Never reference this class directly. Always use {@link com.liferay.evp.admin.service.ProjectLocalServiceUtil} to access the project local service.
+	*/
 	public com.liferay.evp.admin.model.Project addProject(long groupId,
 		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
 		java.lang.String name, java.lang.String description,

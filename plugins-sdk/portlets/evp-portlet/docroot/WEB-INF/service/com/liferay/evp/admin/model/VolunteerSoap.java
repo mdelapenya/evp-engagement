@@ -35,7 +35,6 @@ public class VolunteerSoap implements Serializable {
 		VolunteerSoap soapModel = new VolunteerSoap();
 
 		soapModel.setVolunteerId(model.getVolunteerId());
-		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setUserName(model.getUserName());
@@ -104,14 +103,6 @@ public class VolunteerSoap implements Serializable {
 
 	public void setVolunteerId(long volunteerId) {
 		_volunteerId = volunteerId;
-	}
-
-	public long getGroupId() {
-		return _groupId;
-	}
-
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
 	}
 
 	public long getCompanyId() {
@@ -195,7 +186,6 @@ public class VolunteerSoap implements Serializable {
 	}
 
 	private long _volunteerId;
-	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private String _userName;

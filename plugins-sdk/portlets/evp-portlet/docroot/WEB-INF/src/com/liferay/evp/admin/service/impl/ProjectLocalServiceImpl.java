@@ -43,7 +43,7 @@ import java.util.List;
  */
 @ProviderType
 public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link com.liferay.evp.admin.service.ProjectLocalServiceUtil} to access the project local service.

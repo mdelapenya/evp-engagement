@@ -34,7 +34,7 @@ import com.liferay.evp.admin.service.base.FundServiceBaseImpl;
  */
 @ProviderType
 public class FundServiceImpl extends FundServiceBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link com.liferay.evp.admin.service.FundServiceUtil} to access the fund remote service.

@@ -27,11 +27,12 @@ import aQute.bnd.annotation.ProviderType;
  */
 @ProviderType
 public class FundImpl extends FundBaseImpl {
-	/*
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. All methods that expect a fund model instance should use the {@link com.liferay.evp.admin.model.Fund} interface instead.
 	 */
 	public FundImpl() {
 	}
+
 }

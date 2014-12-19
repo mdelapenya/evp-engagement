@@ -41,6 +41,15 @@ public class VolunteerLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link com.liferay.evp.admin.service.impl.VolunteerLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static com.liferay.evp.admin.model.Volunteer addVolunteer(
+		long userId, com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String firstName, java.lang.String lastName,
+		java.lang.String address, long coordX, long coordY)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService()
+				   .addVolunteer(userId, liferayAudit, firstName, lastName,
+			address, coordX, coordY);
+	}
 
 	/**
 	* Adds the volunteer to the database. Also notifies the appropriate model listeners.
@@ -212,6 +221,11 @@ public class VolunteerLocalServiceUtil {
 		return getService().getVolunteer(volunteerId);
 	}
 
+	public static java.util.List<com.liferay.evp.admin.model.Volunteer> getVolunteers(
+		long companyId, int start, int end) {
+		return getService().getVolunteers(companyId, start, end);
+	}
+
 	/**
 	* Returns a range of all the volunteers.
 	*
@@ -237,6 +251,10 @@ public class VolunteerLocalServiceUtil {
 		return getService().getVolunteersCount();
 	}
 
+	public static int getVolunteersCount(long companyId) {
+		return getService().getVolunteersCount(companyId);
+	}
+
 	public static java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
@@ -250,6 +268,15 @@ public class VolunteerLocalServiceUtil {
 	*/
 	public static void setBeanIdentifier(java.lang.String beanIdentifier) {
 		getService().setBeanIdentifier(beanIdentifier);
+	}
+
+	public static com.liferay.evp.admin.model.Volunteer updateVolunteer(
+		long userId, long volunteerId, java.lang.String firstName,
+		java.lang.String lastName, java.lang.String address, long coordX,
+		long coordY) throws com.liferay.portal.kernel.exception.PortalException {
+		return getService()
+				   .updateVolunteer(userId, volunteerId, firstName, lastName,
+			address, coordX, coordY);
 	}
 
 	/**

@@ -33,6 +33,16 @@ public class VolunteerLocalServiceWrapper implements VolunteerLocalService,
 		_volunteerLocalService = volunteerLocalService;
 	}
 
+	@Override
+	public com.liferay.evp.admin.model.Volunteer addVolunteer(long userId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String firstName, java.lang.String lastName,
+		java.lang.String address, long coordX, long coordY)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _volunteerLocalService.addVolunteer(userId, liferayAudit,
+			firstName, lastName, address, coordX, coordY);
+	}
+
 	/**
 	* Adds the volunteer to the database. Also notifies the appropriate model listeners.
 	*
@@ -218,6 +228,12 @@ public class VolunteerLocalServiceWrapper implements VolunteerLocalService,
 		return _volunteerLocalService.getVolunteer(volunteerId);
 	}
 
+	@Override
+	public java.util.List<com.liferay.evp.admin.model.Volunteer> getVolunteers(
+		long companyId, int start, int end) {
+		return _volunteerLocalService.getVolunteers(companyId, start, end);
+	}
+
 	/**
 	* Returns a range of all the volunteers.
 	*
@@ -246,6 +262,11 @@ public class VolunteerLocalServiceWrapper implements VolunteerLocalService,
 	}
 
 	@Override
+	public int getVolunteersCount(long companyId) {
+		return _volunteerLocalService.getVolunteersCount(companyId);
+	}
+
+	@Override
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
@@ -261,6 +282,15 @@ public class VolunteerLocalServiceWrapper implements VolunteerLocalService,
 	@Override
 	public void setBeanIdentifier(java.lang.String beanIdentifier) {
 		_volunteerLocalService.setBeanIdentifier(beanIdentifier);
+	}
+
+	@Override
+	public com.liferay.evp.admin.model.Volunteer updateVolunteer(long userId,
+		long volunteerId, java.lang.String firstName,
+		java.lang.String lastName, java.lang.String address, long coordX,
+		long coordY) throws com.liferay.portal.kernel.exception.PortalException {
+		return _volunteerLocalService.updateVolunteer(userId, volunteerId,
+			firstName, lastName, address, coordX, coordY);
 	}
 
 	/**

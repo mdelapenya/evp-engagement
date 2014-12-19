@@ -81,7 +81,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("volunteerId", getVolunteerId());
-		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("userName", getUserName());
@@ -105,12 +104,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 
 		if (volunteerId != null) {
 			setVolunteerId(volunteerId);
-		}
-
-		Long groupId = (Long)attributes.get("groupId");
-
-		if (groupId != null) {
-			setGroupId(groupId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -193,29 +186,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 				Method method = clazz.getMethod("setVolunteerId", long.class);
 
 				method.invoke(_volunteerRemoteModel, volunteerId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
-
-	@Override
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-
-		if (_volunteerRemoteModel != null) {
-			try {
-				Class<?> clazz = _volunteerRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setGroupId", long.class);
-
-				method.invoke(_volunteerRemoteModel, groupId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -539,7 +509,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 		VolunteerClp clone = new VolunteerClp();
 
 		clone.setVolunteerId(getVolunteerId());
-		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
 		clone.setUserName(getUserName());
@@ -610,12 +579,10 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{volunteerId=");
 		sb.append(getVolunteerId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", userId=");
@@ -643,7 +610,7 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(40);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.evp.admin.model.Volunteer");
@@ -652,10 +619,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 		sb.append(
 			"<column><column-name>volunteerId</column-name><column-value><![CDATA[");
 		sb.append(getVolunteerId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -704,7 +667,6 @@ public class VolunteerClp extends BaseModelImpl<Volunteer> implements Volunteer 
 	}
 
 	private long _volunteerId;
-	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private String _userName;

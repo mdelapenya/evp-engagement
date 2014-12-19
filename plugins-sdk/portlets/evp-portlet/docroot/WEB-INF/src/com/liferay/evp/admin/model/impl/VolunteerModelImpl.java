@@ -71,7 +71,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 	public static final String TABLE_NAME = "evp_Volunteer";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "volunteerId", Types.BIGINT },
-			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "userId", Types.BIGINT },
 			{ "userName", Types.VARCHAR },
@@ -83,7 +82,7 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 			{ "coordX", Types.BIGINT },
 			{ "coordY", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table evp_Volunteer (volunteerId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,address VARCHAR(75) null,coordX LONG,coordY LONG)";
+	public static final String TABLE_SQL_CREATE = "create table evp_Volunteer (volunteerId LONG not null primary key,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,address VARCHAR(75) null,coordX LONG,coordY LONG)";
 	public static final String TABLE_SQL_DROP = "drop table evp_Volunteer";
 	public static final String ORDER_BY_JPQL = " ORDER BY volunteer.lastName ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY evp_Volunteer.lastName ASC";
@@ -99,7 +98,7 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.liferay.evp.admin.model.Volunteer"),
 			true);
-	public static final long GROUPID_COLUMN_BITMASK = 1L;
+	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long LASTNAME_COLUMN_BITMASK = 2L;
 
 	/**
@@ -116,7 +115,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 		Volunteer model = new VolunteerImpl();
 
 		model.setVolunteerId(soapModel.getVolunteerId());
-		model.setGroupId(soapModel.getGroupId());
 		model.setCompanyId(soapModel.getCompanyId());
 		model.setUserId(soapModel.getUserId());
 		model.setUserName(soapModel.getUserName());
@@ -192,7 +190,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("volunteerId", getVolunteerId());
-		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("userName", getUserName());
@@ -216,12 +213,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 
 		if (volunteerId != null) {
 			setVolunteerId(volunteerId);
-		}
-
-		Long groupId = (Long)attributes.get("groupId");
-
-		if (groupId != null) {
-			setGroupId(groupId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -298,36 +289,25 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 
 	@JSON
 	@Override
-	public long getGroupId() {
-		return _groupId;
-	}
-
-	@Override
-	public void setGroupId(long groupId) {
-		_columnBitmask |= GROUPID_COLUMN_BITMASK;
-
-		if (!_setOriginalGroupId) {
-			_setOriginalGroupId = true;
-
-			_originalGroupId = _groupId;
-		}
-
-		_groupId = groupId;
-	}
-
-	public long getOriginalGroupId() {
-		return _originalGroupId;
-	}
-
-	@JSON
-	@Override
 	public long getCompanyId() {
 		return _companyId;
 	}
 
 	@Override
 	public void setCompanyId(long companyId) {
+		_columnBitmask |= COMPANYID_COLUMN_BITMASK;
+
+		if (!_setOriginalCompanyId) {
+			_setOriginalCompanyId = true;
+
+			_originalCompanyId = _companyId;
+		}
+
 		_companyId = companyId;
+	}
+
+	public long getOriginalCompanyId() {
+		return _originalCompanyId;
 	}
 
 	@JSON
@@ -499,7 +479,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 		VolunteerImpl volunteerImpl = new VolunteerImpl();
 
 		volunteerImpl.setVolunteerId(getVolunteerId());
-		volunteerImpl.setGroupId(getGroupId());
 		volunteerImpl.setCompanyId(getCompanyId());
 		volunteerImpl.setUserId(getUserId());
 		volunteerImpl.setUserName(getUserName());
@@ -570,9 +549,9 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 	public void resetOriginalValues() {
 		VolunteerModelImpl volunteerModelImpl = this;
 
-		volunteerModelImpl._originalGroupId = volunteerModelImpl._groupId;
+		volunteerModelImpl._originalCompanyId = volunteerModelImpl._companyId;
 
-		volunteerModelImpl._setOriginalGroupId = false;
+		volunteerModelImpl._setOriginalCompanyId = false;
 
 		volunteerModelImpl._columnBitmask = 0;
 	}
@@ -582,8 +561,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 		VolunteerCacheModel volunteerCacheModel = new VolunteerCacheModel();
 
 		volunteerCacheModel.volunteerId = getVolunteerId();
-
-		volunteerCacheModel.groupId = getGroupId();
 
 		volunteerCacheModel.companyId = getCompanyId();
 
@@ -648,12 +625,10 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(23);
 
 		sb.append("{volunteerId=");
 		sb.append(getVolunteerId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", userId=");
@@ -681,7 +656,7 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(40);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.evp.admin.model.Volunteer");
@@ -690,10 +665,6 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 		sb.append(
 			"<column><column-name>volunteerId</column-name><column-value><![CDATA[");
 		sb.append(getVolunteerId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -746,10 +717,9 @@ public class VolunteerModelImpl extends BaseModelImpl<Volunteer>
 			Volunteer.class
 		};
 	private long _volunteerId;
-	private long _groupId;
-	private long _originalGroupId;
-	private boolean _setOriginalGroupId;
 	private long _companyId;
+	private long _originalCompanyId;
+	private boolean _setOriginalCompanyId;
 	private long _userId;
 	private String _userName;
 	private Date _createDate;

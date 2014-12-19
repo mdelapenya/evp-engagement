@@ -16,7 +16,12 @@ package com.liferay.evp.admin.service.impl;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.liferay.evp.admin.model.Project;
+import com.liferay.evp.admin.model.impl.LiferayAuditPOJO;
 import com.liferay.evp.admin.service.base.ProjectLocalServiceBaseImpl;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * The implementation of the project local service.
@@ -28,7 +33,7 @@ import com.liferay.evp.admin.service.base.ProjectLocalServiceBaseImpl;
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
- * @author Joan.Kim
+ * @author Manuel de la Peña
  * @see com.liferay.evp.admin.service.base.ProjectLocalServiceBaseImpl
  * @see com.liferay.evp.admin.service.ProjectLocalServiceUtil
  */
@@ -39,4 +44,85 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 	 *
 	 * Never reference this class directly. Always use {@link com.liferay.evp.admin.service.ProjectLocalServiceUtil} to access the project local service.
 	 */
+
+	public Project addProject(
+		long groupId, LiferayAuditPOJO liferayAudit, String name,
+		String description, String location, long coordX, long coordY,
+		long coverImageId, double requiredFunds, double actualFunds,
+		Date startDate, Date endDate, Date approvalDate, String managerName) {
+
+		long id = counterLocalService.increment();
+
+		Project project = projectPersistence.create(id);
+
+		liferayAudit.setCreateDate(new Date());
+
+		_setProjectValues(
+			project, groupId, liferayAudit, name, description, location, coordX,
+			coordY, coverImageId, requiredFunds, actualFunds, startDate,
+			endDate, approvalDate, managerName);
+
+		return addProject(project);
+	}
+
+	public List<Project> findAllProjects(long companyId) {
+		return projectPersistence.findByCompany(companyId);
+	}
+
+	public List<Project> findProjectsByManagerName(String managerName) {
+		return projectPersistence.findByManagerName(managerName);
+	}
+
+	public Project updateProject(
+		long projectId, long groupId, LiferayAuditPOJO liferayAudit,
+		String name, String description, String location, long coordX,
+		long coordY, long coverImageId, double requiredFunds,
+		double actualFunds, Date startDate, Date endDate, Date approvalDate,
+		String managerName) {
+
+		Project project = projectPersistence.findByPrimaryKey(projectId);
+
+		_setProjectValues(
+			project, groupId, liferayAudit, name, description, location, coordX,
+			coordY, coverImageId, requiredFunds, actualFunds, startDate,
+			endDate, approvalDate, managerName);
+
+		return updateProject(project);
+	}
+
+	private void _setProjectValues(
+		Project project, long groupId, LiferayAuditPOJO liferayAudit,
+		String name, String description, String location, long coordX,
+		long coordY, long coverImageId, double requiredFunds,
+		double actualFunds, Date startDate, Date endDate, Date approvalDate,
+		String managerName) {
+
+		project.setGroupId(groupId);
+
+		// Audit fields
+
+		liferayAudit.setCreateDate(project.getCreateDate());
+
+		project.setCompanyId(liferayAudit.getCompanyId());
+		project.setUserId(liferayAudit.getUserId());
+		project.setUserName(liferayAudit.getUserName());
+		project.setCreateDate(liferayAudit.getCreateDate());
+		project.setModifiedDate(liferayAudit.getModifiedDate());
+
+		// Other fields
+
+		project.setName(name);
+		project.setDescription(description);
+		project.setLocation(location);
+		project.setCoordX(coordX);
+		project.setCoordY(coordY);
+		project.setCoverImageId(coverImageId);
+		project.setRequiredFunds(requiredFunds);
+		project.setActualFunds(actualFunds);
+		project.setStartDate(startDate);
+		project.setEndDate(endDate);
+		project.setApprovalDate(approvalDate);
+		project.setManagerName(managerName);
+	}
+
 }

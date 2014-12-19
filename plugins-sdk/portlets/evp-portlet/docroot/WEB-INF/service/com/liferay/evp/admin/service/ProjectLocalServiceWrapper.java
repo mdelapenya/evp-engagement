@@ -32,6 +32,11 @@ public class ProjectLocalServiceWrapper implements ProjectLocalService,
 		_projectLocalService = projectLocalService;
 	}
 
+	/**
+	* NOTE FOR DEVELOPERS:
+	*
+	* Never reference this class directly. Always use {@link com.liferay.evp.admin.service.ProjectLocalServiceUtil} to access the project local service.
+	*/
 	@Override
 	public com.liferay.evp.admin.model.Project addProject(long groupId,
 		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,

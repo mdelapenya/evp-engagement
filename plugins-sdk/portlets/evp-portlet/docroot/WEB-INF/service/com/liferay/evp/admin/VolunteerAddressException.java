@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,10 +11,32 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+package com.liferay.evp.admin;
 
-<portlet:defineObjects />
+import aQute.bnd.annotation.ProviderType;
 
-This is the <b>EVP Portlet</b> portlet.
+import com.liferay.portal.kernel.exception.PortalException;
+
+/**
+ * @author Joan.Kim
+ */
+@ProviderType
+public class VolunteerAddressException extends PortalException {
+
+	public VolunteerAddressException() {
+	}
+
+	public VolunteerAddressException(String msg) {
+		super(msg);
+	}
+
+	public VolunteerAddressException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+	public VolunteerAddressException(Throwable cause) {
+		super(cause);
+	}
+
+}

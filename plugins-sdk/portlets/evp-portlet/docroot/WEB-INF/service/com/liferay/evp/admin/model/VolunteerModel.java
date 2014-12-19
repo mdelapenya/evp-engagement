@@ -17,9 +17,9 @@ package com.liferay.evp.admin.model;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+import com.liferay.portal.model.AuditedModel;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
-import com.liferay.portal.model.GroupedModel;
 import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
@@ -42,7 +42,7 @@ import java.util.Date;
  * @generated
  */
 @ProviderType
-public interface VolunteerModel extends BaseModel<Volunteer>, GroupedModel {
+public interface VolunteerModel extends AuditedModel, BaseModel<Volunteer> {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -76,22 +76,6 @@ public interface VolunteerModel extends BaseModel<Volunteer>, GroupedModel {
 	 * @param volunteerId the volunteer ID of this volunteer
 	 */
 	public void setVolunteerId(long volunteerId);
-
-	/**
-	 * Returns the group ID of this volunteer.
-	 *
-	 * @return the group ID of this volunteer
-	 */
-	@Override
-	public long getGroupId();
-
-	/**
-	 * Sets the group ID of this volunteer.
-	 *
-	 * @param groupId the group ID of this volunteer
-	 */
-	@Override
-	public void setGroupId(long groupId);
 
 	/**
 	 * Returns the company ID of this volunteer.

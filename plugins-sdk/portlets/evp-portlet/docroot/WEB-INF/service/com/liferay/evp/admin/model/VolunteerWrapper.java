@@ -53,7 +53,6 @@ public class VolunteerWrapper implements Volunteer, ModelWrapper<Volunteer> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("volunteerId", getVolunteerId());
-		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("userName", getUserName());
@@ -74,12 +73,6 @@ public class VolunteerWrapper implements Volunteer, ModelWrapper<Volunteer> {
 
 		if (volunteerId != null) {
 			setVolunteerId(volunteerId);
-		}
-
-		Long groupId = (Long)attributes.get("groupId");
-
-		if (groupId != null) {
-			setGroupId(groupId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -216,16 +209,6 @@ public class VolunteerWrapper implements Volunteer, ModelWrapper<Volunteer> {
 	@Override
 	public java.lang.String getFirstName() {
 		return _volunteer.getFirstName();
-	}
-
-	/**
-	* Returns the group ID of this volunteer.
-	*
-	* @return the group ID of this volunteer
-	*/
-	@Override
-	public long getGroupId() {
-		return _volunteer.getGroupId();
 	}
 
 	/**
@@ -409,16 +392,6 @@ public class VolunteerWrapper implements Volunteer, ModelWrapper<Volunteer> {
 	@Override
 	public void setFirstName(java.lang.String firstName) {
 		_volunteer.setFirstName(firstName);
-	}
-
-	/**
-	* Sets the group ID of this volunteer.
-	*
-	* @param groupId the group ID of this volunteer
-	*/
-	@Override
-	public void setGroupId(long groupId) {
-		_volunteer.setGroupId(groupId);
 	}
 
 	/**

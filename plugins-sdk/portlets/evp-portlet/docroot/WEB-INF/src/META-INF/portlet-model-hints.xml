@@ -37,7 +37,6 @@
 	</model>
 	<model name="com.liferay.evp.admin.model.Volunteer">
 		<field name="volunteerId" type="long" />
-		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
 		<field name="userName" type="String" />

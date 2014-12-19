@@ -36,7 +36,6 @@ create table evp_Project (
 
 create table evp_Volunteer (
 	volunteerId LONG not null primary key,
-	groupId LONG,
 	companyId LONG,
 	userId LONG,
 	userName VARCHAR(75) null,

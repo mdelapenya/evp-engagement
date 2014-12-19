@@ -48,6 +48,11 @@ public interface VolunteerLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link VolunteerLocalServiceUtil} to access the volunteer local service. Add custom service methods to {@link com.liferay.evp.admin.service.impl.VolunteerLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public com.liferay.evp.admin.model.Volunteer addVolunteer(long userId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String firstName, java.lang.String lastName,
+		java.lang.String address, long coordX, long coordY)
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Adds the volunteer to the database. Also notifies the appropriate model listeners.
@@ -194,6 +199,10 @@ public interface VolunteerLocalService extends BaseLocalService,
 	public com.liferay.evp.admin.model.Volunteer getVolunteer(long volunteerId)
 		throws com.liferay.portal.kernel.exception.PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.liferay.evp.admin.model.Volunteer> getVolunteers(
+		long companyId, int start, int end);
+
 	/**
 	* Returns a range of all the volunteers.
 	*
@@ -217,6 +226,9 @@ public interface VolunteerLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getVolunteersCount();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getVolunteersCount(long companyId);
+
 	@Override
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
@@ -228,6 +240,11 @@ public interface VolunteerLocalService extends BaseLocalService,
 	* @param beanIdentifier the Spring bean ID for this bean
 	*/
 	public void setBeanIdentifier(java.lang.String beanIdentifier);
+
+	public com.liferay.evp.admin.model.Volunteer updateVolunteer(long userId,
+		long volunteerId, java.lang.String firstName,
+		java.lang.String lastName, java.lang.String address, long coordX,
+		long coordY) throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Updates the volunteer in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

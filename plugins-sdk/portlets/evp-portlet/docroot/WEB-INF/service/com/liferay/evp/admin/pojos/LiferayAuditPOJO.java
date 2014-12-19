@@ -8,10 +8,7 @@ import java.util.Date;
 public class LiferayAuditPOJO {
 
 	public LiferayAuditPOJO(
-		long companyId, Date createDate, long userId,
-		String userName) {
-
-		super();
+		long companyId, Date createDate, long userId, String userName) {
 
 		this.companyId = companyId;
 		this.createDate = createDate;
@@ -23,15 +20,19 @@ public class LiferayAuditPOJO {
 	public long getCompanyId() {
 		return companyId;
 	}
+
 	public Date getCreateDate() {
 		return createDate;
 	}
+
 	public Date getModifiedDate() {
 		return modifiedDate;
 	}
+
 	public long getUserId() {
 		return userId;
 	}
+
 	public String getUserName() {
 		return userName;
 	}

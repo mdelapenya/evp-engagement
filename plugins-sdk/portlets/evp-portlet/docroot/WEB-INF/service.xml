@@ -93,6 +93,7 @@ volunteers (Volunteer, 0:N)
 			<finder-column name="field2" />
 		</finder>
 	</entity>
+
 	<entity name="Fund" local-service="true" remote-service="true">
 
 		<!-- PK fields -->
@@ -129,6 +130,7 @@ volunteers (Volunteer, 0:N)
 			<finder-column name="groupId" />
 		</finder>
 	</entity>
+
 	<entity name="Volunteer" local-service="true" remote-service="true">
 
 		<!-- PK fields -->

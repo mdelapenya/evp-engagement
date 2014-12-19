@@ -102,10 +102,6 @@ volunteers (Volunteer, 0:N)
 
 		<column name="volunteerId" type="long" primary="true" />
 
-		<!-- Group instance -->
-
-		<column name="groupId" type="long" />
-
 		<!-- Audit fields -->
 
 		<column name="companyId" type="long" />
@@ -130,13 +126,16 @@ volunteers (Volunteer, 0:N)
 
 		<!-- Finder methods -->
 
-		<finder name="GroupId" return-type="Collection">
-			<finder-column name="groupId" />
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
 		</finder>
 	</entity>
 
 	<exceptions>
 		<exception>ManagerName</exception>
 		<exception>ProjectName</exception>
+		<exception>VolunteerFirstName</exception>
+		<exception>VolunteerLastName</exception>
+		<exception>VolunteerAddress</exception>
 	</exceptions>
 </service-builder>

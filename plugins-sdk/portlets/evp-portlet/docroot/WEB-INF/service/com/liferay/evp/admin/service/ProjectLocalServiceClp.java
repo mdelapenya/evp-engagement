@@ -161,7 +161,8 @@ public class ProjectLocalServiceClp implements ProjectLocalService {
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName) {
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
@@ -199,6 +200,10 @@ public class ProjectLocalServiceClp implements ProjectLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -796,7 +801,8 @@ public class ProjectLocalServiceClp implements ProjectLocalService {
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName) {
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
@@ -836,6 +842,10 @@ public class ProjectLocalServiceClp implements ProjectLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;

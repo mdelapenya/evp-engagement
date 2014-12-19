@@ -47,7 +47,8 @@ public class ProjectLocalServiceUtil {
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName) {
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addProject(groupId, liferayAudit, name, description,
 			location, coordX, coordY, coverImageId, requiredFunds, actualFunds,
@@ -291,7 +292,8 @@ public class ProjectLocalServiceUtil {
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName) {
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .updateProject(projectId, groupId, liferayAudit, name,
 			description, location, coordX, coordY, coverImageId, requiredFunds,

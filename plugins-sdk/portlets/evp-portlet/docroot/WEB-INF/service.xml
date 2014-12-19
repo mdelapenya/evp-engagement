@@ -134,4 +134,9 @@ volunteers (Volunteer, 0:N)
 			<finder-column name="groupId" />
 		</finder>
 	</entity>
+
+	<exceptions>
+		<exception>ManagerName</exception>
+		<exception>ProjectName</exception>
+	</exceptions>
 </service-builder>

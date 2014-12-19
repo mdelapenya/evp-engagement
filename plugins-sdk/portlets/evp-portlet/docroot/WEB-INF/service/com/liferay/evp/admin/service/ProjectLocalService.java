@@ -54,7 +54,8 @@ public interface ProjectLocalService extends BaseLocalService,
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName);
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Adds the project to the database. Also notifies the appropriate model listeners.
@@ -256,5 +257,6 @@ public interface ProjectLocalService extends BaseLocalService,
 		java.lang.String location, long coordX, long coordY, long coverImageId,
 		double requiredFunds, double actualFunds, java.util.Date startDate,
 		java.util.Date endDate, java.util.Date approvalDate,
-		java.lang.String managerName);
+		java.lang.String managerName)
+		throws com.liferay.portal.kernel.exception.PortalException;
 }

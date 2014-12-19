@@ -369,6 +369,16 @@ public class ClpSerializer {
 
 		String className = clazz.getName();
 
+		if (className.equals("com.liferay.evp.admin.ManagerNameException")) {
+			return new com.liferay.evp.admin.ManagerNameException(throwable.getMessage(),
+				throwable.getCause());
+		}
+
+		if (className.equals("com.liferay.evp.admin.ProjectNameException")) {
+			return new com.liferay.evp.admin.ProjectNameException(throwable.getMessage(),
+				throwable.getCause());
+		}
+
 		if (className.equals("com.liferay.evp.admin.NoSuchFundException")) {
 			return new com.liferay.evp.admin.NoSuchFundException(throwable.getMessage(),
 				throwable.getCause());

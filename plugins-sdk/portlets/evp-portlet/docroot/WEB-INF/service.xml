@@ -86,7 +86,7 @@ volunteers (Volunteer, 0:N)
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="" />
+			<order-column name="receiveDate" />
 		</order>
 
 		<!-- Finder methods -->

@@ -41,6 +41,18 @@ public class ProjectLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link com.liferay.evp.admin.service.impl.ProjectLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static com.liferay.evp.admin.model.Project addProject(long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName) {
+		return getService()
+				   .addProject(groupId, liferayAudit, name, description,
+			location, coordX, coordY, coverImageId, requiredFunds, actualFunds,
+			startDate, endDate, approvalDate, managerName);
+	}
 
 	/**
 	* Adds the project to the database. Also notifies the appropriate model listeners.
@@ -180,6 +192,16 @@ public class ProjectLocalServiceUtil {
 		return getService().fetchProject(projectId);
 	}
 
+	public static java.util.List<com.liferay.evp.admin.model.Project> findAllProjects(
+		long companyId) {
+		return getService().findAllProjects(companyId);
+	}
+
+	public static java.util.List<com.liferay.evp.admin.model.Project> findProjectsByManagerName(
+		java.lang.String managerName) {
+		return getService().findProjectsByManagerName(managerName);
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return getService().getActionableDynamicQuery();
 	}
@@ -260,6 +282,20 @@ public class ProjectLocalServiceUtil {
 	public static com.liferay.evp.admin.model.Project updateProject(
 		com.liferay.evp.admin.model.Project project) {
 		return getService().updateProject(project);
+	}
+
+	public static com.liferay.evp.admin.model.Project updateProject(
+		long projectId, long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName) {
+		return getService()
+				   .updateProject(projectId, groupId, liferayAudit, name,
+			description, location, coordX, coordY, coverImageId, requiredFunds,
+			actualFunds, startDate, endDate, approvalDate, managerName);
 	}
 
 	public static void clearService() {

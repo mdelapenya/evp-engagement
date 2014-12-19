@@ -126,6 +126,32 @@ public class ProjectLocalServiceClpInvoker {
 		_methodName56 = "setBeanIdentifier";
 
 		_methodParameterTypes56 = new String[] { "java.lang.String" };
+
+		_methodName61 = "addProject";
+
+		_methodParameterTypes61 = new String[] {
+				"long", "com.liferay.evp.admin.pojos.LiferayAuditPOJO",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"long", "long", "long", "double", "double", "java.util.Date",
+				"java.util.Date", "java.util.Date", "java.lang.String"
+			};
+
+		_methodName62 = "findAllProjects";
+
+		_methodParameterTypes62 = new String[] { "long" };
+
+		_methodName63 = "findProjectsByManagerName";
+
+		_methodParameterTypes63 = new String[] { "java.lang.String" };
+
+		_methodName64 = "updateProject";
+
+		_methodParameterTypes64 = new String[] {
+				"long", "long", "com.liferay.evp.admin.pojos.LiferayAuditPOJO",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"long", "long", "long", "double", "double", "java.util.Date",
+				"java.util.Date", "java.util.Date", "java.lang.String"
+			};
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -239,6 +265,47 @@ public class ProjectLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName61.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes61, parameterTypes)) {
+			return ProjectLocalServiceUtil.addProject(((Long)arguments[0]).longValue(),
+				(com.liferay.evp.admin.pojos.LiferayAuditPOJO)arguments[1],
+				(java.lang.String)arguments[2], (java.lang.String)arguments[3],
+				(java.lang.String)arguments[4],
+				((Long)arguments[5]).longValue(),
+				((Long)arguments[6]).longValue(),
+				((Long)arguments[7]).longValue(),
+				((Double)arguments[8]).doubleValue(),
+				((Double)arguments[9]).doubleValue(),
+				(java.util.Date)arguments[10], (java.util.Date)arguments[11],
+				(java.util.Date)arguments[12], (java.lang.String)arguments[13]);
+		}
+
+		if (_methodName62.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
+			return ProjectLocalServiceUtil.findAllProjects(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName63.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
+			return ProjectLocalServiceUtil.findProjectsByManagerName((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName64.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
+			return ProjectLocalServiceUtil.updateProject(((Long)arguments[0]).longValue(),
+				((Long)arguments[1]).longValue(),
+				(com.liferay.evp.admin.pojos.LiferayAuditPOJO)arguments[2],
+				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
+				(java.lang.String)arguments[5],
+				((Long)arguments[6]).longValue(),
+				((Long)arguments[7]).longValue(),
+				((Long)arguments[8]).longValue(),
+				((Double)arguments[9]).doubleValue(),
+				((Double)arguments[10]).doubleValue(),
+				(java.util.Date)arguments[11], (java.util.Date)arguments[12],
+				(java.util.Date)arguments[13], (java.lang.String)arguments[14]);
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -282,4 +349,12 @@ public class ProjectLocalServiceClpInvoker {
 	private String[] _methodParameterTypes55;
 	private String _methodName56;
 	private String[] _methodParameterTypes56;
+	private String _methodName61;
+	private String[] _methodParameterTypes61;
+	private String _methodName62;
+	private String[] _methodParameterTypes62;
+	private String _methodName63;
+	private String[] _methodParameterTypes63;
+	private String _methodName64;
+	private String[] _methodParameterTypes64;
 }

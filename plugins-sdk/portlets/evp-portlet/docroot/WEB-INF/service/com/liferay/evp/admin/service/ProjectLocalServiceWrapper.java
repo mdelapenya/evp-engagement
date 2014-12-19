@@ -32,6 +32,19 @@ public class ProjectLocalServiceWrapper implements ProjectLocalService,
 		_projectLocalService = projectLocalService;
 	}
 
+	@Override
+	public com.liferay.evp.admin.model.Project addProject(long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName) {
+		return _projectLocalService.addProject(groupId, liferayAudit, name,
+			description, location, coordX, coordY, coverImageId, requiredFunds,
+			actualFunds, startDate, endDate, approvalDate, managerName);
+	}
+
 	/**
 	* Adds the project to the database. Also notifies the appropriate model listeners.
 	*
@@ -180,6 +193,18 @@ public class ProjectLocalServiceWrapper implements ProjectLocalService,
 	}
 
 	@Override
+	public java.util.List<com.liferay.evp.admin.model.Project> findAllProjects(
+		long companyId) {
+		return _projectLocalService.findAllProjects(companyId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.evp.admin.model.Project> findProjectsByManagerName(
+		java.lang.String managerName) {
+		return _projectLocalService.findProjectsByManagerName(managerName);
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return _projectLocalService.getActionableDynamicQuery();
 	}
@@ -268,6 +293,21 @@ public class ProjectLocalServiceWrapper implements ProjectLocalService,
 	public com.liferay.evp.admin.model.Project updateProject(
 		com.liferay.evp.admin.model.Project project) {
 		return _projectLocalService.updateProject(project);
+	}
+
+	@Override
+	public com.liferay.evp.admin.model.Project updateProject(long projectId,
+		long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName) {
+		return _projectLocalService.updateProject(projectId, groupId,
+			liferayAudit, name, description, location, coordX, coordY,
+			coverImageId, requiredFunds, actualFunds, startDate, endDate,
+			approvalDate, managerName);
 	}
 
 	/**

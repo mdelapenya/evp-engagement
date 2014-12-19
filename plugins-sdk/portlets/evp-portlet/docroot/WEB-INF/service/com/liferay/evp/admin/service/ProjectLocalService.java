@@ -48,6 +48,13 @@ public interface ProjectLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link ProjectLocalServiceUtil} to access the project local service. Add custom service methods to {@link com.liferay.evp.admin.service.impl.ProjectLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public com.liferay.evp.admin.model.Project addProject(long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName);
 
 	/**
 	* Adds the project to the database. Also notifies the appropriate model listeners.
@@ -164,6 +171,12 @@ public interface ProjectLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.evp.admin.model.Project fetchProject(long projectId);
 
+	public java.util.List<com.liferay.evp.admin.model.Project> findAllProjects(
+		long companyId);
+
+	public java.util.List<com.liferay.evp.admin.model.Project> findProjectsByManagerName(
+		java.lang.String managerName);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery();
 
@@ -235,4 +248,13 @@ public interface ProjectLocalService extends BaseLocalService,
 	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.liferay.evp.admin.model.Project updateProject(
 		com.liferay.evp.admin.model.Project project);
+
+	public com.liferay.evp.admin.model.Project updateProject(long projectId,
+		long groupId,
+		com.liferay.evp.admin.pojos.LiferayAuditPOJO liferayAudit,
+		java.lang.String name, java.lang.String description,
+		java.lang.String location, long coordX, long coordY, long coverImageId,
+		double requiredFunds, double actualFunds, java.util.Date startDate,
+		java.util.Date endDate, java.util.Date approvalDate,
+		java.lang.String managerName);
 }

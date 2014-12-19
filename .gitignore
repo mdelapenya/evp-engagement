@@ -1,5 +1,7 @@
 .metadata
 
+plugins-sdk/.bnd
+plugins-sdk/.ivy
 plugins-sdk/build.*.properties
 
 Servers

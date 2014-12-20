@@ -1,0 +1,216 @@
+@import "compass";
+@import "compass/css3/user-interface";
+@import "mixins";
+
+$colorBloks: #696969;
+$secondarySolidColor: #D83331;
+
+.nav-pills {
+	margin-bottom: 15px;
+}
+
+body.dockbar-mac {
+	margin-top: 125px;
+}
+
+#wrapper {
+	padding: 0;
+	font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#banner {
+	border-bottom: 1px solid #E1E1E1;
+	margin-bottom: 15px;
+	min-height: 110px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background: rgba(255, 255, 255, .8);
+	z-index: 1;
+
+	.site-navigation, .site-title {
+		margin-top: 30px;
+	}
+
+	.lfr-nav-child-toggle {
+		font-size: 80%;
+	}
+
+	#navigation {
+		.nav li>a {
+			text-transform: uppercase;
+			font-size: 85%;
+		}
+
+		.navbar-nav>li.active a {
+			background: inherit;
+			font-weight: bold;
+		}
+	}
+
+	.logo img {
+		max-width: 220px;
+		height: inherit;
+	}
+}
+
+#content {
+	#breadcrumbs .breadcrumb {
+		background: transparent;
+		padding: 0;
+
+		.active a {
+			color: #000;
+		}
+	}
+}
+
+#footer {
+	background: #D83331;
+	margin-top: 40px;
+	min-height: 44px;
+	padding: 55px 0;
+	font-size: 80%;
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFF;
+
+	a {
+		color: #CECECE;
+		padding: 0 15px;
+	}
+}
+
+/*General Portlets*/
+.portlet-draggable .portlet-topper {
+	cursor: auto;
+}
+
+.portlet-topper {
+	.portlet-title {
+		cursor: move;
+		display: inline-block;
+
+		.portlet-title-text {
+			max-width: inherit;
+		}
+	}
+
+	.portlet-topper-toolbar {
+		display: inline-block;
+		margin-left: 10px;
+		position: relative;
+
+		.portlet-options {
+			display: inline;
+			vertical-align: super;
+		}
+
+		a {
+			color: $secondarySolidColor;
+
+			.lfr-icon-menu-icon {
+				font-size: 25px;
+
+				@include opacity(0.5);
+			}
+
+			&:hover, .open {
+				.lfr-icon-menu-icon {
+					@include opacity(1);
+					@include transition(all 0.4s ease-in-out);
+				}
+			}
+		}
+
+		.caret {
+			display: none;
+		}
+	}
+}
+
+body.big-home {
+	margin-top: 0;
+
+	.fixing {
+		position: fixed;
+		top: 0;
+		width: inherit;
+	}
+
+	#banner {
+		border: 0;
+		background: none;
+	}
+}
+
+.controls-visible.signed-in.big-home {
+	.portlet-boundary {
+		z-index: 9999;
+	}
+
+}
+
+.dockbar .container .site-administration-menu li a:focus, .dockbar .container .site-administration-menu li a:hover, .dockbar .container-fluid .site-administration-menu li a:focus, .dockbar .container-fluid .site-administration-menu li a:hover, .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	background: #D83331;
+}
+
+/*RD*/
+@include respond-to(phone, tablet) {
+	.language-blue {
+		min-height: 60px;
+		padding-top: 21px;
+		font-size: 100%;
+	}
+
+	#banner {
+		.col-md-9 {
+			position: inherit;
+
+			#navigation {
+				margin-top: 0;
+				position: inherit;
+
+				li, ul {
+					width: 100%;
+					position: relative;
+
+					a {
+						font-size: 100%;
+					}
+				}
+
+				.glyphicon-chevron-down {
+					font-size: 15px;
+					line-height: 15px;
+					padding: 16px;
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+
+				.dropdown-menu {
+					border: 0;
+					padding: 0;
+				}
+			}
+		}
+
+		.nologin-main-menu {
+			background: $colorBloks;
+			float: right;
+			padding: 7px 12px;
+			position: relative;
+			width: 45px;
+
+			i {
+				color: #FFF;
+				font-size: 22px;
+			}
+		}
+
+		.modify-pages .drag-handle {
+			width: 21px;
+		}
+	}
+}

@@ -24,7 +24,6 @@ import com.liferay.evp.admin.pojos.LiferayAuditPOJO;
 import com.liferay.evp.admin.service.base.VolunteerLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.User;
 
 import java.util.Date;
 import java.util.List;
@@ -40,7 +39,6 @@ public class VolunteerLocalServiceImpl extends VolunteerLocalServiceBaseImpl {
 			String lastName, String address, long coordX, long coordY)
 		throws PortalException {
 
-		User user = userPersistence.findByPrimaryKey(userId);
 		Date now = new Date();
 
 		validate(firstName, lastName, address);
@@ -79,7 +77,6 @@ public class VolunteerLocalServiceImpl extends VolunteerLocalServiceBaseImpl {
 			String address, long coordX, long coordY)
 		throws PortalException {
 
-		User user = userPersistence.findByPrimaryKey(userId);
 		Date now = new Date();
 
 		Volunteer volunteer = volunteerPersistence.findByPrimaryKey(

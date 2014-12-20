@@ -20,11 +20,11 @@
 long companyId = themeDisplay.getCompanyId();
 %>
 
-<liferay-ui:search-container emptyResultsMessage="projects-empty-results-message">
+<liferay-ui:search-container emptyResultsMessage="evp-project-empty-results-message">
 	<liferay-ui:search-container-results
 		results="<%= ProjectLocalServiceUtil.findAllProjects(companyId) %>"
 		total="<%= ProjectLocalServiceUtil.countAllProjects(companyId) %>" />
-	
+
 	<liferay-ui:search-container-row
 		className="com.liferay.evp.admin.model.Project" keyProperty="projectId"
 		modelVar="project" escapedModel="<%= true %>">

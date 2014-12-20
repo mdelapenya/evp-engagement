@@ -73,6 +73,10 @@ public interface ProjectLocalService extends BaseLocalService,
 	public com.liferay.evp.admin.model.Project addProject(
 		com.liferay.evp.admin.model.Project project);
 
+	public int countAllProjects(long companyId);
+
+	public int countProjectsByManagerName(java.lang.String managerName);
+
 	/**
 	* Creates a new project with the primary key. Does not add the project to the database.
 	*

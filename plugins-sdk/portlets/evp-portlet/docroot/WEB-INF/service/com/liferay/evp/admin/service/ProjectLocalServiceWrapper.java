@@ -63,6 +63,16 @@ public class ProjectLocalServiceWrapper implements ProjectLocalService,
 		return _projectLocalService.addProject(project);
 	}
 
+	@Override
+	public int countAllProjects(long companyId) {
+		return _projectLocalService.countAllProjects(companyId);
+	}
+
+	@Override
+	public int countProjectsByManagerName(java.lang.String managerName) {
+		return _projectLocalService.countProjectsByManagerName(managerName);
+	}
+
 	/**
 	* Creates a new project with the primary key. Does not add the project to the database.
 	*

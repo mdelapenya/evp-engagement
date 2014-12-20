@@ -136,17 +136,25 @@ public class ProjectLocalServiceClpInvoker {
 				"java.util.Date", "java.util.Date", "java.lang.String"
 			};
 
-		_methodName62 = "findAllProjects";
+		_methodName62 = "countAllProjects";
 
 		_methodParameterTypes62 = new String[] { "long" };
 
-		_methodName63 = "findProjectsByManagerName";
+		_methodName63 = "countProjectsByManagerName";
 
 		_methodParameterTypes63 = new String[] { "java.lang.String" };
 
-		_methodName64 = "updateProject";
+		_methodName64 = "findAllProjects";
 
-		_methodParameterTypes64 = new String[] {
+		_methodParameterTypes64 = new String[] { "long" };
+
+		_methodName65 = "findProjectsByManagerName";
+
+		_methodParameterTypes65 = new String[] { "java.lang.String" };
+
+		_methodName66 = "updateProject";
+
+		_methodParameterTypes66 = new String[] {
 				"long", "long", "com.liferay.evp.admin.pojos.LiferayAuditPOJO",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"long", "long", "long", "double", "double", "java.util.Date",
@@ -282,16 +290,26 @@ public class ProjectLocalServiceClpInvoker {
 
 		if (_methodName62.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes62, parameterTypes)) {
-			return ProjectLocalServiceUtil.findAllProjects(((Long)arguments[0]).longValue());
+			return ProjectLocalServiceUtil.countAllProjects(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName63.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes63, parameterTypes)) {
-			return ProjectLocalServiceUtil.findProjectsByManagerName((java.lang.String)arguments[0]);
+			return ProjectLocalServiceUtil.countProjectsByManagerName((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName64.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes64, parameterTypes)) {
+			return ProjectLocalServiceUtil.findAllProjects(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName65.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes65, parameterTypes)) {
+			return ProjectLocalServiceUtil.findProjectsByManagerName((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName66.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes66, parameterTypes)) {
 			return ProjectLocalServiceUtil.updateProject(((Long)arguments[0]).longValue(),
 				((Long)arguments[1]).longValue(),
 				(com.liferay.evp.admin.pojos.LiferayAuditPOJO)arguments[2],
@@ -357,4 +375,8 @@ public class ProjectLocalServiceClpInvoker {
 	private String[] _methodParameterTypes63;
 	private String _methodName64;
 	private String[] _methodParameterTypes64;
+	private String _methodName65;
+	private String[] _methodParameterTypes65;
+	private String _methodName66;
+	private String[] _methodParameterTypes66;
 }

@@ -72,6 +72,14 @@ public class ProjectLocalServiceUtil {
 		return getService().addProject(project);
 	}
 
+	public static int countAllProjects(long companyId) {
+		return getService().countAllProjects(companyId);
+	}
+
+	public static int countProjectsByManagerName(java.lang.String managerName) {
+		return getService().countProjectsByManagerName(managerName);
+	}
+
 	/**
 	* Creates a new project with the primary key. Does not add the project to the database.
 	*

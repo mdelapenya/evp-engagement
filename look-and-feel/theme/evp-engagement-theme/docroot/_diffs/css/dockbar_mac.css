@@ -1,0 +1,227 @@
+@import "aui/alloy-font-awesome/scss/mixins-alloy";
+@import "aui/alloy-font-awesome/scss/variables";
+@import "compass";
+@import "compass/css3/user-interface";
+@import "mixins";
+
+$dockbarMaCWidth: 60px;
+$dockbarMaCiconWidth: 40px;
+$primarySolidColor: #202020;
+$secondarySolidColor: #D83331;
+
+%navbar-item-style {
+	background: $secondarySolidColor;
+	border: none;
+	color: #FFF;
+	font-size: 20px;
+	height: $dockbarMaCiconWidth;
+	line-height: 33px;
+	margin: 10px 0 0 10px;
+	padding: 3px;
+	text-align: center;
+	width: $dockbarMaCiconWidth;
+
+	@include border-radius(50%);
+	@include transition(all 0.3s ease-in-out);
+
+	&:hover {
+		@include opacity(0.7);
+	}
+}
+
+.dockbar-mac {
+	.portlet-dockbar {
+		.navbar.dockbar {
+			background: rgba(255, 255, 255, 0.3);
+			height: 100%;
+			position: fixed;
+			width: $dockbarMaCWidth;
+
+			@include transition(all 0.3s ease-in-out);
+
+			.container-fluid {
+				padding: 0;
+
+				&>ul {
+					padding: 0;
+
+					&>li {
+						display: block;
+						float: none;
+						min-width: inherit;
+
+						&>a {
+							@extend %navbar-item-style;
+						}
+
+						&.open>a {
+							background: #EEE;
+							color: $secondarySolidColor;
+						}
+
+						.nav-item-icon {
+							display: inline-block;
+						}
+
+						.icon-caret-down, .nav-item-label {
+							display: none;
+						}
+
+						&>.dropdown-menu {
+							top: 0;
+						}
+					}
+				}
+
+				&>ul:nth-child(3)>li>.dropdown-menu {
+					bottom: 0;
+					left: $dockbarMaCWidth;
+					right: inherit;
+					top: inherit;
+				}
+
+				ul.nav-navigation {
+					display: none;
+				}
+
+				ul.nav-add-controls {
+					li {
+						a {
+							@extend %navbar-item-style;
+						}
+					}
+
+					ul.dropdown-menu {
+						min-width: inherit;
+						padding: 0;
+					}
+				}
+
+				ul.nav-account-controls {
+					background: none;
+					float: left;
+
+					.admin-links {
+						.dropdown-menu {
+							li .nav-item-label {
+								display: inline-block;
+							}
+						}
+					}
+
+					.user-notification-link {
+						background: transparent;
+						border: 0;
+						font-size: 12px;
+						height: 20px;
+						left: 32px;
+						line-height: 20px;
+						margin: 0;
+						padding: 0;
+						position: absolute;
+						text-align: center;
+						top: 32px;
+						width: 20px;
+						z-index: 1;
+
+						@include opacity(1);
+
+						.user-notifications-count {
+							background: red;
+							border-width: 0;
+							color: #FFF;
+							display: block;
+							text-align: center;
+
+							@include border-radius(50%);
+						}
+					}
+
+					li.dropdown.dockbar-user-notifications .dropdown-menu {
+						left: $dockbarMaCWidth;
+						top: 0;
+					}
+
+					.user-avatar {
+						&>.dropdown-menu {
+							left: $dockbarMaCWidth;
+							right: inherit;
+						}
+
+						.user-full-name {
+							display: none;
+						}
+
+						.user-avatar-link {
+							overflow: hidden;
+							padding: 0;
+						}
+
+						.user-avatar-image {
+							background-size: cover;
+							display: inline-block;
+							height: 42px;
+							width: 42px;
+						}
+
+						.nav-item-label {
+							display: inline-block;
+						}
+					}
+
+					.my-sites-menu .site-type {
+						left: 100%;
+						margin: 0 5px 0;
+						right: inherit;
+					}
+				}
+			}
+		}
+	}
+}
+
+.dockbar-mac.over {
+	.portlet-dockbar {
+		.navbar.dockbar {
+			background: none;
+
+			.container-fluid {
+				&>ul>li>a, ul.nav-add-controls li a {
+					margin-top: -$dockbarMaCiconWidth;
+
+					@include opacity(0);
+					@include transition(all 0.4s ease-in-out);
+				}
+
+				&>ul>li.user-avatar {
+					&>a.user-avatar-link {
+						margin-top: 10px;
+
+						@include opacity(1);
+					}
+
+					.dropdown-menu {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.controls-visible.signed-out.dockbar-mac .portlet-dockbar .navbar.dockbar .container-fluid>ul>li>a {
+	margin-top: 5px;
+
+	@include opacity(1);
+
+	.nav-item-icon {
+		left: 0;
+		top: 7px;
+	}
+}
+
+@include respond-to(phone, tablet) {
+	.dockbar-mac .portlet-dockbar {
+		display: none;
+	}
+}

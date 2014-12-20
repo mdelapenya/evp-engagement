@@ -70,6 +70,14 @@ public class ProjectLocalServiceImpl extends ProjectLocalServiceBaseImpl {
 		return addProject(project);
 	}
 
+	public int countAllProjects(long companyId) {
+		return projectPersistence.countByCompany(companyId);
+	}
+
+	public int countProjectsByManagerName(String managerName) {
+		return projectPersistence.countByManagerName(managerName);
+	}
+
 	public List<Project> findAllProjects(long companyId) {
 		return projectPersistence.findByCompany(companyId);
 	}

@@ -1,0 +1,13 @@
+PODS:
+  - CBZSplashView (1.0.0)
+  - JBKenBurnsView (1.0)
+
+DEPENDENCIES:
+  - CBZSplashView
+  - JBKenBurnsView
+
+SPEC CHECKSUMS:
+  CBZSplashView: 2d5346c06ae78e3f5ed8ea298ef7daccbceddb16
+  JBKenBurnsView: fff26eaeb0d11a595a371427b0c0b37fe9a7ceeb
+
+COCOAPODS: 0.35.0

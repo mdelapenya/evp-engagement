@@ -1,0 +1,5 @@
+#include "Pods-JBKenBurnsView.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/JBKenBurnsView" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CBZSplashView" "${PODS_ROOT}/Headers/Public/JBKenBurnsView"
+OTHER_LDFLAGS = ${PODS_JBKENBURNSVIEW_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

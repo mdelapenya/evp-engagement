@@ -4,6 +4,8 @@
 
 plugins-sdk/.bnd
 plugins-sdk/.ivy
+plugins-sdk/dist
+
 plugins-sdk/build.*.properties
 
 Servers

@@ -59,7 +59,7 @@ public class VolunteerLocalServiceImpl extends VolunteerLocalServiceBaseImpl {
 		volunteer.setCoordX(coordX);
 		volunteer.setCoordY(coordY);
 
-		volunteerPersistence.update(volunteer, false);
+		volunteerPersistence.update(volunteer);
 
 		return volunteer;
 	}
@@ -90,7 +90,7 @@ public class VolunteerLocalServiceImpl extends VolunteerLocalServiceBaseImpl {
 		volunteer.setAddress(address);
 		volunteer.setCoordX(coordX);
 
-		volunteerPersistence.update(volunteer, false);
+		volunteerPersistence.update(volunteer);
 
 		return volunteer;
 	}
